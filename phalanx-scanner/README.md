@@ -8,9 +8,9 @@
 ## Phase 1: Core Scanning Engine
 
 ### 1.1 File System Traversal
-- [ ] Implement recursive directory scanning
+- [X] Implement recursive directory scanning
 - [ ] Filter for executable files (.exe, .elf, .bin, etc.)
-- [ ] Handle symbolic links and special files
+- [X] Handle symbolic links and special files
 - [ ] Add file permission checking
 - [ ] Implement progress reporting for large scans
 
