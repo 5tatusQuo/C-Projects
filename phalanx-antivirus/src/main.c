@@ -1,19 +1,18 @@
 #include "phalanx.h"
+#include "scan.h"
 #include <string.h>
+#include <stdio.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <path>\n", argv[0]);
+        return 1;
+    }
+
     Database db = db_make(50000);
-
-    Entry e1 = {0}, e2 = {0};
-    strcpy(e1.dir,  "documents");
-    strcpy(e1.file, "notes.txt");
-    strcpy(e2.dir,  "downloads");
-    strcpy(e2.file, "installer.exe");
-
-    db_add(&db, e1);
-    db_add(&db, e2);
+    scan_path(argv[1], &db);
     db_show(&db);
-
     db_free(&db);
+
     return 0;
 }

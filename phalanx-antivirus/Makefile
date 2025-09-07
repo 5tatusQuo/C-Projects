@@ -10,9 +10,11 @@ BIN     = phalanx
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(SRCS:.c=.o)
 
+SCAN ?= .
+
 # Default: build and run
 all: $(BIN)
-	./$(BIN)
+	./$(BIN) $(SCAN)
 
 # Link
 $(BIN): $(OBJS)
@@ -24,7 +26,7 @@ $(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 
 # Separate run target (optional)
 run: $(BIN)
-	./$(BIN)
+	./$(BIN) $(SCAN)
 
 clean:
 	rm -f $(BIN) $(OBJS)
